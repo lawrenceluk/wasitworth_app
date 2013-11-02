@@ -1,1 +1,22 @@
 <% provide(:title, @class.name) %>
+
+<div class="center">
+	<h3><%= @school.name %></h3>
+	<%= "#{@class.name} #{@class.class_type} taught by #{@class.instructor}" %>
+</div>
+<hr>
+<div class="row">
+	<div class="large-8 small-8 columns">
+		<div class="gap" id="reportshere">
+			<%= render 'reports/reports', reports: @reports %>
+		</div>
+	</div>
+	<div class="large-4 small-4 columns">
+		<div id="formhere">
+			<%= render 'reports/form' %>
+		</div>
+	</div>
+</div>
+
+<hr>
+<%= link_to "Back to courses", school_path(@school.hiddenname) %>

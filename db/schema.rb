@@ -11,7 +11,19 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20131102085214) do
+ActiveRecord::Schema.define(version: 20131102183246) do
+
+  create_table "reports", force: true do |t|
+    t.integer  "w_class_id"
+    t.text     "comment"
+    t.integer  "wasitworth"
+    t.integer  "votes_for"
+    t.integer  "votes_against"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  add_index "reports", ["w_class_id", "created_at"], name: "index_reports_on_w_class_id_and_created_at"
 
   create_table "schools", force: true do |t|
     t.string   "name"

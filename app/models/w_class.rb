@@ -1,5 +1,7 @@
 class WClass < ActiveRecord::Base
 
+	has_many :reports
+
 	before_create :generate_slug
 
 	belongs_to :school
@@ -10,7 +12,7 @@ class WClass < ActiveRecord::Base
 	validates :instructor, length: { minimum: 2, maximum: 80 }
 
   def generate_slug
-    self.slug = name.parameterize
+    self.slug = name.parameterize+"-"+instructor.downcase.parameterize+"-"+class_type.downcase
   end
 
   def to_param

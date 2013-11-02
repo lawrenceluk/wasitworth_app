@@ -5,6 +5,8 @@ class SchoolsController < ApplicationController
   # GET /schools.json
   def index
     @schools = School.all
+    # redirect to school automatically if there's a cookie
+    # cookie is last visited school
   end
 
   # GET /schools/1
@@ -26,10 +28,13 @@ class SchoolsController < ApplicationController
   # POST /schools
   # POST /schools.json
   def create
+    invalid = ['new', 'edit', 'create', 'update', 'destroy', 'index', 'show']
     @school = School.new(school_params)
     @school.hiddenname = @school.name.downcase.parameterize
-    if @school.save
-      redirect_to @school
+    if invalid.include?(@school.hiddenname)
+      render 'new'
+    elsif @school.save
+      redirect_to school_path(@school.hiddenname)
     else
       render 'new'
     end

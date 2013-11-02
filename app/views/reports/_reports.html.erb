@@ -1,0 +1,18 @@
+<% reports ||= WClass.find(params[:report][:w_class_id]).reports %>
+<% if reports.any? %>
+		<!-- ghetto voting display -->
+		<% r = reports.where("comment = ''").first %>
+		<%= r.votes_for %> say it's worth<br>
+		<%= r.votes_against %> say it's not worth
+	
+		<div class="gap">
+			<% reports.each do |r| %>
+				<% if r.comment != "" %>
+					<%= r.comment %>
+					<br>
+				<% end %>
+			<% end %>
+		</div>
+<% else %>
+	There aren't any reports yet!
+<% end %>

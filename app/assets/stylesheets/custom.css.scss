@@ -2,23 +2,24 @@
 
 body {
 	font-family: "Oxygen";
-	background-image: url('hexabump.png');
+	background: #333;
 	color: #fff;
 }
 
 .site {
+	border-top: 5px solid #fff;
 	padding-top: 30px;
-	background: rgba(0.2, 0.2, 0.2, 0.2);
+	background: #77B88B;
 }
 
 a {
-	color: #D4F6FA;
+	color: #29595E;
 	text-decoration: none;
 	&:hover {
 		text-decoration: underline;
 	}
 	&:active {
-		color: #9BE1EB;
+		color: #448E96;
 	}
 }
 
@@ -73,4 +74,8 @@ a {
 	&:hover {
 		text-decoration: none;
 	}
+}
+
+.hiding {
+	visibility:hidden;
 }

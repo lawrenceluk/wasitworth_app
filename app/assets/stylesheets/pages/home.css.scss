@@ -41,3 +41,29 @@
 		box-shadow: inset 0px 1px 4px #333;
 	}
 }
+
+.schoollink {
+	line-height: 3em;
+	padding: 8px 10px;
+	background: #39546B;
+	color: #fff;
+	&:hover {
+		color: #fff;
+		background: #1F394F;
+		text-decoration: none;
+	}
+	&:active {
+		box-shadow: inset 0px 1px 4px #333;
+	}
+}
+.schoollink.lighter {
+	background: #5C7E9C;
+	&:hover {
+		color: #fff;
+		background: #3F698C;
+		text-decoration: none;
+	}
+	&:active {
+		box-shadow: inset 0px 1px 4px #333;
+	}
+}

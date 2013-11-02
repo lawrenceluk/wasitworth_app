@@ -17,17 +17,14 @@
 				</div>
 			</div>
 		</div>
-		<div class="gap center">
-			Never miss an important class (or go to a pointless one)! <br>
-			Students already there can tell you if it was worth going.
-		</div>
 		<hr>
 		<% if @classes.empty? %>
 			There aren't any classes right now.
 		<% else %>
+			<h4>Recent Classes</h4>
 			<ul>
 			<% @classes.each do |c| %>
-				<li><%= link_to "#{c.name} - #{time_ago_in_words(c.created_at)} ago", school_w_class_path(@school.hiddenname, c) %></li>
+				<li><%= link_to "#{c.name} with #{c.instructor} - #{time_ago_in_words(c.created_at)} ago", school_w_class_path(@school.hiddenname, c) %></li>
 			<% end %>
 			</ul>
 		<% end %>
