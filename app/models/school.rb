@@ -1,6 +1,6 @@
 class School < ActiveRecord::Base
 
-	has_many :w_classes
+	has_many :w_classes, dependent: :destroy
 
 	validates :name, presence: true, length: { minimum: 2, maximum: 80 }
   validates :hiddenname, presence: true,

@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20131102081115) do
+ActiveRecord::Schema.define(version: 20131102085214) do
 
   create_table "schools", force: true do |t|
     t.string   "name"
@@ -23,12 +23,13 @@ ActiveRecord::Schema.define(version: 20131102081115) do
   create_table "w_classes", force: true do |t|
     t.string   "name"
     t.time     "time"
-    t.string   "type"
+    t.string   "class_type"
     t.text     "description"
     t.datetime "created_at"
     t.datetime "updated_at"
     t.string   "instructor"
     t.integer  "school_id"
+    t.string   "slug"
   end
 
   add_index "w_classes", ["school_id", "created_at"], name: "index_w_classes_on_school_id_and_created_at"

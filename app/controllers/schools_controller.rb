@@ -11,8 +11,7 @@ class SchoolsController < ApplicationController
   # GET /schools/1.json
   def show
     @school = School.find(params[:id])
-    @classes = @school.w_classes;
-    puts "TELL ME ABOUT IT  AAAAA #{@school.name}"
+    @classes = @school.w_classes.to_a;
   end
 
   # GET /schools/new
@@ -29,14 +28,10 @@ class SchoolsController < ApplicationController
   def create
     @school = School.new(school_params)
     @school.hiddenname = @school.name.downcase.parameterize
-    respond_to do |format|
-      if @school.save
-        format.html { redirect_to @school, notice: 'School was successfully created.' }
-        format.json { render action: 'show', status: :created, location: @school }
-      else
-        format.html { render action: 'new' }
-        format.json { render json: @school.errors, status: :unprocessable_entity }
-      end
+    if @school.save
+      redirect_to @school
+    else
+      render 'new'
     end
   end
 

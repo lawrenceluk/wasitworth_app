@@ -1,10 +1,28 @@
 class WClass < ActiveRecord::Base
 
+	before_create :generate_slug
+
 	belongs_to :school
+	default_scope -> { order('created_at DESC') }
 
-	validates :name, presence: true, length: { minimum: 2, maximum: 80 }
+	validates :name, length: { minimum: 2, maximum: 80 }
+	validates :class_type, presence: true
+	validates :instructor, length: { minimum: 2, maximum: 80 }
 
-	validates :type, presence: true, length: { minimum: 2, maximum: 80 }
-	validates :time, presence: true
+  def generate_slug
+    self.slug = name.parameterize
+  end
+
+  def to_param
+    slug
+  end
+
+  def self.find(input)
+    if input && input.to_i == 0 
+      find_by_slug(input)
+    else       
+    	super
+    end
+  end
 
 end

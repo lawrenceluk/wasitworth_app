@@ -5,10 +5,14 @@
 			<div class="large-8 small-11 large-centered small-centered columns gap">
 				<div class="row">
 					<div class="large-4 small-4 columns">
-						<div class="fatbutton">Yes</div>
+						<%= link_to new_school_w_class_path(@school.hiddenname), class: "nohover" do %>
+							<div class="fatbutton">Yes</div>
+						<% end %>
 					</div>
 					<div class="large-6 small-6 pull-2 columns">
-						<div class="fatbutton other">No, should I go?</div>
+						<%= link_to "#", class: "nohover" do %>
+							<div class="fatbutton other">No, should I go?</div>
+						<% end %>
 					</div>
 				</div>
 			</div>
@@ -21,7 +25,11 @@
 		<% if @classes.empty? %>
 			There aren't any classes right now.
 		<% else %>
-
+			<ul>
+			<% @classes.each do |c| %>
+				<li><%= link_to "#{c.name} - #{time_ago_in_words(c.created_at)} ago", school_w_class_path(@school.hiddenname, c) %></li>
+			<% end %>
+			</ul>
 		<% end %>
 	</div>
 </div>

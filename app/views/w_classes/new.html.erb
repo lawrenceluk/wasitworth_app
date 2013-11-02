@@ -1,0 +1,34 @@
+<% provide(:title, "New Class") %>
+<%= form_for(@class, url: school_w_classes_path(params[:school_id])) do |f| %>
+  <% if @class.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@class.errors.count, "error") %> prohibited this class from being saved:</h2>
+      <ul>
+      <% @class.errors.full_messages.each do |msg| %>
+        <li><%= msg %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= f.label :name %><br>
+    <%= f.text_field :name, placeholder: "MATH 100" %>
+    <br>
+    <%= f.label :description %><br>
+    <%= f.text_area :description, placeholder: "Class just started and I'm falling asleep already" %>
+    <br>
+    <%= f.label :instructor %><br>
+    <%= f.text_field :instructor, placeholder: "Lee Li" %>
+    <br>
+    <%= radio_button_tag(:class_type, "lecture") %>
+    <%= label_tag(:lecture, "Lecture") %>
+    <%= radio_button_tag(:class_type, "discussion") %>
+    <%= label_tag(:discussion, "Discussion") %>
+    <%= radio_button_tag(:class_type, "other") %>
+    <%= label_tag(:other, "Other") %>
+  </div>
+  <div class="actions">
+    <button type="submit">Go</button>
+  </div>
+<% end %>
