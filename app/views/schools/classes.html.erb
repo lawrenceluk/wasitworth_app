@@ -1,0 +1,21 @@
+<% provide(:title, "#{@school.name} Classes") %>
+<h2 class="center">Latest Classes</h2>
+<div class="row">
+	<div class="large-10 small-11 large-centered small-centered columns">
+		<% if @classes.any? %>
+			<% @classes.each do |c| %>
+				<%= link_to "/#{@school.hiddenname}/#{c.slug}", class: "nohover" do %>
+				  <div class="label">
+				  	<%= "#{c.name} with #{c.instructor} (#{c.class_type})" %>
+				  </div>
+				<% end %>
+			<% end %>
+		<% else %>
+			There aren't any classes right now.
+		<% end %>
+	</div>
+</div>
+<br>
+<div class='center'>
+	<%= image_tag 'professor.png', width: 80 %>
+</div>

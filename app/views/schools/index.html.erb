@@ -1,35 +1,33 @@
 <% provide :title, "Was It Worth" %>
 <div class="center">
-	<%= image_tag 'logo.png', width: 200 %>
-	<div class="gap row">
-		<div class="large-6 small-6 large-centered small-centered columns">
-			<div class="row">
-				<% 3.times do %>
-					<div class="large-4 small-4 columns center">
-						<i class="fa fa-asterisk"></i>
-					</div>
-				<% end %>
-			</div>
-		</div>
-	</div>
+	<%= image_tag 'logo.png', width: 400 %>
+	<div class="gap"></div>
 	<h1>Pick a School</h1>
+	<%= image_tag 'school.png', width: 90 %><br><br>
 	<div class="row">
 		<div class="large-10 large-centered small-11 small-centered columns">
 		  <% @schools.each do |school| %>
-		    <%= link_to school.name, school.hiddenname, class: "schoollink" %>
+		    <%= link_to school.hiddenname do %>
+		    	<div class="btn schoollink"><%= school.name %></div>
+		    <% end %>
 		  <% end %>
-		  <%= link_to new_school_path, class: "schoollink lighter" do %>
+		  <%= link_to new_school_path, class: "btn schoollink lighter" do %>
 		  	<i class="fa fa-plus"></i> Add Your School
 		  <% end %>
 		</div>
 	</div>
-	<div class="gap row">
-		<div class="large-10 large-centered columns">
+	<div class="gap">
+	<div class="row">
+		<div class="large-8 large-centered columns">
 			<div class="row">
 				<div class="large-6 columns">
+					<%= image_tag 'face.png', width: 74 %>
+					<br><br>
 					Never miss an important class (or go to a pointless one)!
 				</div>
 				<div class="large-6 columns">
+					<%= image_tag 'text.png', width: 105 %>
+					<br><br>
 					Students already there can tell you if it was worth going.
 				</div>
 			</div>

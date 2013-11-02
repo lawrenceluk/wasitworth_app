@@ -1,5 +1,7 @@
 WasitworthApp::Application.routes.draw do
   
+  match '/classes/:id', to: 'schools#classes', via: [:get]
+
   scope 'a', as: 'a' do
     resources :schools, :w_classes
   end

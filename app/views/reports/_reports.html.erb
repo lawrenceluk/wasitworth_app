@@ -2,14 +2,35 @@
 <% if reports.any? %>
 		<!-- ghetto voting display -->
 		<% r = reports.where("comment = ''").first %>
-		<%= r.votes_for %> say it's worth<br>
-		<%= r.votes_against %> say it's not worth
-	
-		<div class="gap">
+		<div class="row">
+			<div class="large-4 columns subtlepopout">
+				<div class="worthgoing">
+					Worth Going
+				</div>
+				<div class="bignumber">
+					<%= r.votes_for %><span class="tiny"><%= pluralize(r.votes_for, "vote").split(//).last(5).join %></span>
+				</div>
+			</div>
+			<div class="large-2 columns center">
+				<div class="gap"></div>
+				<%= image_tag 'hmmm.png', width: 120, class: "respace" %>
+			</div>
+			<div class="large-4 columns subtlepopout darker">
+				<div class="worthgoing">
+					Not Worth It
+				</div>
+				<div class="bignumber">
+					<%= r.votes_against %><span class="tiny"><%= pluralize(r.votes_against, "vote").split(//).last(5).join %></span>
+				</div>
+			</div>
+		</div>
+		<br><br>
+		<div class="gap commentarea">
 			<% reports.each do |r| %>
 				<% if r.comment != "" %>
-					<%= r.comment %>
-					<br>
+					<div class="comment">
+						<%= r.comment %> <small class="gray"><%= time_ago_in_words(r.created_at) %> ago</small>
+					</div>
 				<% end %>
 			<% end %>
 		</div>

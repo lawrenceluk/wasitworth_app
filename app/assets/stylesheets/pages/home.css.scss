@@ -5,7 +5,7 @@
        -o-user-select: none;
           user-select: none;
 	border-radius: 1px;
-	padding: 25px 28px 25px 25px;
+	padding-top: 10px;
 	text-align: center;
 	margin-top: 20px;
 
@@ -13,7 +13,7 @@
 	width: 130px;
 	background: #1DC5DB;
 	color: #fff;
-	font-size: 2em;
+	font-size: 3em;
 	border-bottom: 3px solid #B3EBF2;
 
 	&:hover {
@@ -26,9 +26,6 @@
 }
 
 .fatbutton.other {
-	padding: 25px 25px 10px 25px;
-	height: 80px;
-	width: 290px;
 	background: #F29155;
 	color: #fff;
 	border-bottom: 3px solid #F2C5AA;
@@ -43,7 +40,8 @@
 }
 
 .schoollink {
-	line-height: 3em;
+	margin: 3px 1px;
+	border-radius: 0px;
 	padding: 8px 10px;
 	background: #39546B;
 	color: #fff;
@@ -65,5 +63,19 @@
 	}
 	&:active {
 		box-shadow: inset 0px 1px 4px #333;
+	}
+}
+
+.homelink {
+	top: -9px;
+	position: absolute;
+	border-radius: 2px;
+	padding: 9px 5px 5px 5px;
+	background: #fff;
+	font-weight: 600;
+	font-size: 1em;
+	&:hover {
+		text-decoration: none;
+		color: #333;	
 	}
 }

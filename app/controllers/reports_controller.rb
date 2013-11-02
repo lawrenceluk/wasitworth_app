@@ -4,18 +4,18 @@ class ReportsController < ApplicationController
 		report = WClass.find(params[:report][:w_class_id]).reports.where("comment = ''")
 		if report.count == 1
 			r = Report.find(report.first.id)
-			if params[:commit] == 'worth'
+			if params[:commit] == 'Worth'
 				r.update_attribute(:votes_for, r.votes_for+1)
-			elsif params[:commit] == 'notworth'
+			elsif params[:commit] == 'Not Worth'
 				r.update_attribute(:votes_against, r.votes_against+1)
 			end
 		end
 		if report_params[:comment] != ""
 			@report = WClass.find(report_params[:w_class_id]).reports.build(report_params)
-			if params[:commit] == 'worth'
+			if params[:commit] == 'Worth'
 				@report.votes_for = 1
 				@report.votes_against = 0
-			elsif params[:commit] == 'notworth'
+			elsif params[:commit] == 'Not Worth'
 				@report.votes_against = 1
 				@report.votes_for = 0
 			end

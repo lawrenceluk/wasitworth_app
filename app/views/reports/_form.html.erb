@@ -1,11 +1,16 @@
-<%= form_for Report.new, url: reports_new_path, remote: true do |f| %>
-  <div class="field">
-    <%= f.hidden_field :w_class_id, value: @class.id %>
-    <%= f.label :comment %><br>
-    <%= f.text_area :comment, placeholder: "Leave a comment" %>
-  </div>
-  <div class="actions">
-    <%= f.submit 'worth' %>
-    <%= f.submit 'notworth' %>
-  </div>
-<% end %>
+<div class="gap"></div>
+<div id="formhere" class="center">
+	<%= form_for Report.new, url: reports_new_path, remote: true do |f| %>
+	  <div class="field">
+	  	<br>
+	    <%= f.hidden_field :w_class_id, value: @class.id %>
+	    <%= f.text_area :comment, placeholder: "Leave a comment (optional)", rows: 4 %>
+	  </div>
+	  <br>
+	  <div class="actions">
+	    <%= f.submit 'Worth', id: "worthbutton" %>
+	    <%= f.submit 'Not Worth', id: "notworthbutton" %>
+	  </div>
+	<% end %>
+	<br>
+</div>

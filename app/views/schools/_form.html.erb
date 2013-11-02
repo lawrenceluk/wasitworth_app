@@ -1,21 +1,20 @@
+<% provide(:title, "Add a School") %>
 <%= form_for(@school, url: new_a_school_path) do |f| %>
   <% if @school.errors.any? %>
     <div id="error_explanation">
-      <h2><%= pluralize(@school.errors.count, "error") %> prohibited this school from being saved:</h2>
-
-      <ul>
+      <%= pluralize(@school.errors.count, "error") %>:<br>
       <% @school.errors.full_messages.each do |msg| %>
-        <li><%= msg %></li>
+        <small><%= msg %></small></br>
       <% end %>
-      </ul>
     </div>
   <% end %>
-
+  <br>
   <div class="field">
     <%= f.label :name %><br>
     <%= f.text_field :name %>
   </div>
+  <br>
   <div class="actions">
-    <%= f.submit %>
+    <%= f.submit class: "btn btn-submit" %>
   </div>
 <% end %>

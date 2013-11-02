@@ -1,10 +1,15 @@
 .footer {
+	border-radius: 12px 12px 0px 0px;
 	display: block;
 	font-size: 0.8em;
+	background: rgba(0.1, 0.1, 0.1, 0.07);
 }
 .foot > li {
 	margin-top: -20px;
 	display: block;
 	float: right;
 	padding: 0px 0px 10px 10px;
+}
+.foot > a {
+	float: left;
 }

@@ -13,7 +13,12 @@ class SchoolsController < ApplicationController
   # GET /schools/1.json
   def show
     @school = School.find(params[:id])
-    @classes = @school.w_classes.to_a;
+    @classes = @school.w_classes.to_a
+  end
+
+  def classes
+    @school = School.find(params[:id])
+    @classes = @school.w_classes.to_a
   end
 
   # GET /schools/new

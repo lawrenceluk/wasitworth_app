@@ -9,12 +9,15 @@ class WClassesController < ApplicationController
 		@class = WClass.new(wclass_params)
 		@class.class_type = params[:class_type] #rails why
 		@class.school_id = School.find(params[:school_id]).id
-		@class.slug = @class.name.parameterize
-		if WClass.find(@class.slug) || invalid.include?(@class.slug)
+		@class.slug = @class.name.parameterize+"-"+@class.instructor.downcase.parameterize+"-"+@class.class_type.downcase
+		puts "WHAT IS THE SLUG #{@class.slug}"
+		if invalid.include?(@class.slug)
 			# warn
 			render 'new'
+		elsif WClass.find(@class.slug)
+			puts "THIS IS THE CASE"
+			redirect_to school_w_class_path(params[:school_id], @class.slug)
     elsif @class.save
-    	puts "Great success"
     	@class.reports.build(votes_for: 0, votes_against: 0, comment: "").save
       redirect_to school_w_class_path(params[:school_id], @class.slug)
     else

@@ -4,6 +4,7 @@ body {
 	font-family: "Oxygen";
 	background: #333;
 	color: #fff;
+	box-shadow: inset 0px 5px 5px 0px #111;
 }
 
 .site {
@@ -78,4 +79,62 @@ a {
 
 .hiding {
 	visibility:hidden;
+}
+
+.bigger {
+	font-size: 2.5em;
+}
+
+.white {
+	color: #fff;
+}
+
+.submit {
+	filter: none;
+	text-shadow: none;
+	margin: 3px 1px;
+	border-radius: 0px;
+	border: 0px;
+	padding: 8px 10px;
+	background: #39546B;
+	color: #fff;
+	&:hover {
+		color: #fff;
+		background: #1F394F;
+		text-decoration: none;
+	}
+	&:active {
+		box-shadow: inset 0px 1px 4px #333;
+	}
+}
+
+.label {
+	transition: 0.1s;
+	color: #29595E;
+	padding: 8px;
+	background: #fff;
+	margin: 4px;
+	&:hover {
+		color: #fff;
+		background: #1F394F;
+	}
+}
+
+.popout {
+	color: #111;
+	background: #fff;
+	padding: 10px;
+	box-shadow: 0px 2px 4px #333;
+}
+
+.subtlepopout {
+	margin: 18px;
+	color: #fff;
+	background: #6B8F76;
+	padding: 10px;
+	box-shadow: 0px 1px 4px #444;	
+}
+
+.subtlepopout.darker {
+	background: #4F7059;
 }

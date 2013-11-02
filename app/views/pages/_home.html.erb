@@ -1,32 +1,43 @@
 <div class="row">
+	<div class="center">
+		<i class="fa fa-map-marker fa-5x"></i>
+	</div>
 	<div class="large-11 large-centered columns">
-		<div class="huge center">Are you in class right now?</div>
+		<div class="huge center">Are you in class now?</div>
 		<div class="row">
-			<div class="large-8 small-11 large-centered small-centered columns gap">
+			<div class="large-8 small-11 large-centered small-centered columns">
 				<div class="row">
-					<div class="large-4 small-4 columns">
+					<div class="large-6 small-6 columns">
 						<%= link_to new_school_w_class_path(@school.hiddenname), class: "nohover" do %>
-							<div class="fatbutton">Yes</div>
+							<div class="fatbutton center">Yes</div>
 						<% end %>
 					</div>
-					<div class="large-6 small-6 pull-2 columns">
-						<%= link_to "#", class: "nohover" do %>
-							<div class="fatbutton other">No, should I go?</div>
+					<div class="large-6 small-6 columns">
+						<%= link_to "/classes/#{@school.hiddenname}", class: "nohover" do %>
+							<div class="fatbutton other center">No</div>
 						<% end %>
 					</div>
 				</div>
 			</div>
 		</div>
-		<hr>
-		<% if @classes.empty? %>
-			There aren't any classes right now.
-		<% else %>
-			<h4>Recent Classes</h4>
-			<ul>
-			<% @classes.each do |c| %>
-				<li><%= link_to "#{c.name} with #{c.instructor} - #{time_ago_in_words(c.created_at)} ago", school_w_class_path(@school.hiddenname, c) %></li>
-			<% end %>
-			</ul>
-		<% end %>
+		<br>
+		<div class="center bigger" id="message">
+			<br>
+		</div>
+		<div class="center gap">
+			<%= image_tag 'student.png', width: 120 %>
+		</div>
 	</div>
 </div>
+
+<script>
+	$(".fatbutton").hover(
+		function () {
+			if ($(this).html() == "Yes") {
+				$("#message").html("How's it going so far?")
+			} else {
+				$("#message").html("Should you go?")
+			}
+		}
+	)
+</script>
