@@ -1,0 +1,43 @@
+.fatbutton {
+  -webkit-user-select: none;
+     -moz-user-select: none;
+      -ms-user-select: none;
+       -o-user-select: none;
+          user-select: none;
+	border-radius: 1px;
+	padding: 25px 28px 25px 25px;
+	text-align: center;
+	margin-top: 20px;
+
+	height: 80px;
+	width: 130px;
+	background: #1DC5DB;
+	color: #fff;
+	font-size: 2em;
+	border-bottom: 3px solid #B3EBF2;
+
+	&:hover {
+		border-bottom: 3px solid #4FBBC9;
+		background: #3A909C;
+	}
+	&:active {
+		box-shadow: inset 0px 1px 4px #333;
+	}
+}
+
+.fatbutton.other {
+	padding: 25px 25px 10px 25px;
+	height: 80px;
+	width: 290px;
+	background: #F29155;
+	color: #fff;
+	border-bottom: 3px solid #F2C5AA;
+
+	&:hover {
+		border-bottom: 3px solid #D19671;
+		background: #B3744D;
+	}
+	&:active {
+		box-shadow: inset 0px 1px 4px #333;
+	}
+}

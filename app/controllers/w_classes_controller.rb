@@ -1,0 +1,2 @@
+class WClassesController < ApplicationController
+end

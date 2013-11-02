@@ -1,0 +1,70 @@
+@import url("http://fonts.googleapis.com/css?family=Oxygen:400,700,300");
+
+body {
+	font-family: "Oxygen";
+	background-image: url('hexabump.png');
+	color: #fff;
+}
+
+.site {
+	padding-top: 30px;
+	background: rgba(0.2, 0.2, 0.2, 0.2);
+}
+
+a {
+	color: #D4F6FA;
+	text-decoration: none;
+	&:hover {
+		text-decoration: underline;
+	}
+	&:active {
+		color: #9BE1EB;
+	}
+}
+
+.btn {
+	font-weight: 500;
+  display: inline-block;
+  padding: 4px 11px;
+  margin-bottom: 0;
+  font-size: 14px;
+  font-weight: normal;
+  line-height: 1.428571429;
+  text-align: center;
+  white-space: nowrap;
+  vertical-align: middle;
+  cursor: pointer;
+  border-radius: 2px;
+  color: #fff;
+  -webkit-user-select: none;
+     -moz-user-select: none;
+      -ms-user-select: none;
+       -o-user-select: none;
+          user-select: none;
+}
+
+.btn-submit {
+	border: 1px solid #888;
+	&:hover {
+		color: #333;
+		background: #FFF;
+	}
+	&:active {
+		color: #333;
+		background: #D4FAD6;
+	}
+}
+
+.huge {
+	font-size: 3em;
+}
+
+.gap {
+	margin-top: 50px;
+}
+
+.center {
+	text-align: center;
+	margin-left: auto;
+	margin-right: auto;
+}

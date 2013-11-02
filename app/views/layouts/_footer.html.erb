@@ -1,0 +1,22 @@
+<div class="footer">
+  <div class="row">
+    <div class="large-11 large-centered columns">
+      <br>
+      <a href="" id="backtotop">Back to Top</a>
+      <small>
+        <ul class="foot">
+          <li>About</li>
+          <li>Contact</li>
+          <li><%= link_to root_path do %><div class="center">Home</div><% end %></li>
+        </ul>
+      </small>
+    </div>
+  </div>
+</footer>
+
+<script>
+  $("#backtotop").click(function() {
+    $("html, body").animate({ scrollTop: 0 }, "slow");
+    return false;
+  });
+</script>
